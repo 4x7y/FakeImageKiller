@@ -7,16 +7,12 @@ before_install:
   - sudo apt-get update
 
 script:
-  - git clone https://github.com/Itseez/opencv.git
-  - cd opencv
-  - mkdir build
-  - cd build
-  - cmake ..
-  - make -j4
-  - sudo make -j4 install
-  - cd ~
   - git clone https://github.com/4x7y/FakeImageKiller.git
   - cd FakeImageKiller
+  - rm CMakeCache.txt
+  - rm cmake_install.cmake
+  - rm FakeImageKiller
+  - rm -R CMakeFiles
   - cmake .
   - make
 
