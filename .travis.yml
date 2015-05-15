@@ -9,7 +9,7 @@ before_install:
 install:
   - sudo apt-get install python-dev python-numpy
 
-before_script:
+script:
   - git clone https://github.com/Itseez/opencv.git
   - cd opencv
   - mkdir build
@@ -20,8 +20,6 @@ before_script:
   - cd ~
   - git clone https://github.com/4x7y/FakeImageKiller.git
   - cd FakeImageKiller
-
-script:
   - cmake .
   - make
 
