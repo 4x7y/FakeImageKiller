@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o"
+  "CMakeFiles/FakeImageKiller.dir/src/test.cpp.o"
   "FakeImageKiller.pdb"
   "FakeImageKiller"
 )

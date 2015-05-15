@@ -1,7 +1,9 @@
- project( FakeImageKiller )
- 
- find_package( OpenCV REQUIRED )
- 
- add_executable( FakeImageKiller FakeImageKiller )
- 
- target_link_libraries( FakeImageKiller ${OpenCV_LIBS} )
+# Edited by Xue Yuechuan @ 2015.5.15
+
+PROJECT( FakeImageKiller )
+CMAKE_MINIMUM_REQUIRED( VERSION 2.6)
+AUX_SOURCE_DIRECTORY( ./src DIR_SRCS)
+FIND_PACKAGE ( OpenCV REQUIRED )
+# ADD_SUBDIRECTORY ( src )
+ADD_EXECUTABLE( FakeImageKiller ${DIR_SRCS} )
+TARGET_LINK_LIBRARIES( FakeImageKiller ${OpenCV_LIBS} )

@@ -114,20 +114,29 @@ FakeImageKiller/fast:
 	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/build
 .PHONY : FakeImageKiller/fast
 
+src/test.o: src/test.cpp.o
+.PHONY : src/test.o
+
 # target to build an object file
-FakeImageKiller.o:
-	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o
-.PHONY : FakeImageKiller.o
+src/test.cpp.o:
+	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/src/test.cpp.o
+.PHONY : src/test.cpp.o
+
+src/test.i: src/test.cpp.i
+.PHONY : src/test.i
 
 # target to preprocess a source file
-FakeImageKiller.i:
-	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/FakeImageKiller.i
-.PHONY : FakeImageKiller.i
+src/test.cpp.i:
+	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
+
+src/test.s: src/test.cpp.s
+.PHONY : src/test.s
 
 # target to generate assembly for a file
-FakeImageKiller.s:
-	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/FakeImageKiller.s
-.PHONY : FakeImageKiller.s
+src/test.cpp.s:
+	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
 
 # Help Target
 help:
@@ -138,9 +147,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... FakeImageKiller"
-	@echo "... FakeImageKiller.o"
-	@echo "... FakeImageKiller.i"
-	@echo "... FakeImageKiller.s"
+	@echo "... src/test.o"
+	@echo "... src/test.i"
+	@echo "... src/test.s"
 .PHONY : help
 
 

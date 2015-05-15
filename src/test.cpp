@@ -5,7 +5,7 @@ using namespace cv;
 int main()
 {
 
-    Mat img = imread("/Users/yuechuan/Desktop/1wq.png",CV_LOAD_IMAGE_COLOR);
+    Mat img = imread("./pic/pic1.png",CV_LOAD_IMAGE_COLOR);
     imshow("opencvtest",img);
     waitKey(0);
 

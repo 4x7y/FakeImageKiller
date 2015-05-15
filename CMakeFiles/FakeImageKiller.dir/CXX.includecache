@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/yuechuan/Develop/FakeImageKiller/FakeImageKiller.cpp
+/Users/yuechuan/Develop/FakeImageKiller/src/test.cpp
 opencv2/highgui/highgui.hpp
 -
 

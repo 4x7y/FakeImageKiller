@@ -49,37 +49,37 @@ include CMakeFiles/FakeImageKiller.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/FakeImageKiller.dir/flags.make
 
-CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o: CMakeFiles/FakeImageKiller.dir/flags.make
-CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o: FakeImageKiller.cpp
+CMakeFiles/FakeImageKiller.dir/src/test.cpp.o: CMakeFiles/FakeImageKiller.dir/flags.make
+CMakeFiles/FakeImageKiller.dir/src/test.cpp.o: src/test.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yuechuan/Develop/FakeImageKiller/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o -c /Users/yuechuan/Develop/FakeImageKiller/FakeImageKiller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/FakeImageKiller.dir/src/test.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FakeImageKiller.dir/src/test.cpp.o -c /Users/yuechuan/Develop/FakeImageKiller/src/test.cpp
 
-CMakeFiles/FakeImageKiller.dir/FakeImageKiller.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FakeImageKiller.dir/FakeImageKiller.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yuechuan/Develop/FakeImageKiller/FakeImageKiller.cpp > CMakeFiles/FakeImageKiller.dir/FakeImageKiller.i
+CMakeFiles/FakeImageKiller.dir/src/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FakeImageKiller.dir/src/test.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yuechuan/Develop/FakeImageKiller/src/test.cpp > CMakeFiles/FakeImageKiller.dir/src/test.cpp.i
 
-CMakeFiles/FakeImageKiller.dir/FakeImageKiller.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FakeImageKiller.dir/FakeImageKiller.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yuechuan/Develop/FakeImageKiller/FakeImageKiller.cpp -o CMakeFiles/FakeImageKiller.dir/FakeImageKiller.s
+CMakeFiles/FakeImageKiller.dir/src/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FakeImageKiller.dir/src/test.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yuechuan/Develop/FakeImageKiller/src/test.cpp -o CMakeFiles/FakeImageKiller.dir/src/test.cpp.s
 
-CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.requires:
-.PHONY : CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.requires
+CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.requires:
+.PHONY : CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.requires
 
-CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.provides: CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.requires
-	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.provides.build
-.PHONY : CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.provides
+CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.provides: CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FakeImageKiller.dir/build.make CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.provides.build
+.PHONY : CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.provides
 
-CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.provides.build: CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o
+CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.provides.build: CMakeFiles/FakeImageKiller.dir/src/test.cpp.o
 
 # Object files for target FakeImageKiller
 FakeImageKiller_OBJECTS = \
-"CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o"
+"CMakeFiles/FakeImageKiller.dir/src/test.cpp.o"
 
 # External object files for target FakeImageKiller
 FakeImageKiller_EXTERNAL_OBJECTS =
 
-FakeImageKiller: CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o
+FakeImageKiller: CMakeFiles/FakeImageKiller.dir/src/test.cpp.o
 FakeImageKiller: CMakeFiles/FakeImageKiller.dir/build.make
 FakeImageKiller: /usr/local/lib/libopencv_videostab.2.4.9.dylib
 FakeImageKiller: /usr/local/lib/libopencv_ts.a
@@ -108,7 +108,7 @@ FakeImageKiller: CMakeFiles/FakeImageKiller.dir/link.txt
 CMakeFiles/FakeImageKiller.dir/build: FakeImageKiller
 .PHONY : CMakeFiles/FakeImageKiller.dir/build
 
-CMakeFiles/FakeImageKiller.dir/requires: CMakeFiles/FakeImageKiller.dir/FakeImageKiller.o.requires
+CMakeFiles/FakeImageKiller.dir/requires: CMakeFiles/FakeImageKiller.dir/src/test.cpp.o.requires
 .PHONY : CMakeFiles/FakeImageKiller.dir/requires
 
 CMakeFiles/FakeImageKiller.dir/clean:
