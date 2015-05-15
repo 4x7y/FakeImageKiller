@@ -17,3 +17,15 @@ before_script:
   - cmake ..
   - make -j4
   - sudo make -j4 install
+  - cd ~
+  - git clone https://github.com/4x7y/FakeImageKiller.git
+  - cd FakeImageKiller
+
+script:
+  - cmake .
+  - make
+
+
+notifications:
+  email:
+    - xueyuechuan@gmail.com
