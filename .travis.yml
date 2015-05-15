@@ -6,9 +6,6 @@ compiler:
 before_install:
   - sudo apt-get update
 
-install:
-  - sudo apt-get install python-dev python-numpy
-
 script:
   - git clone https://github.com/Itseez/opencv.git
   - cd opencv
