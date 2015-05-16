@@ -17,10 +17,6 @@ script:
   - cd ~
   - git clone https://github.com/4x7y/FakeImageKiller.git
   - cd FakeImageKiller
-  - rm CMakeCache.txt
-  - rm cmake_install.cmake
-  - rm FakeImageKiller
-  - rm -R CMakeFiles
   - cmake .
   - make
 
