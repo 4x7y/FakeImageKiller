@@ -1,11 +1,19 @@
 language: c++
 
 compiler: 
-  - gcc
+  - g++
 
 before_install:
   - sudo apt-get update
-
+# We need this line to have g++4.8 available in apt
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+install:
+  - sudo apt-get install -qq gcc-4.8 g++-4.8 
+# We want to compile with g++ 4.8 when rather than the default g++
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
+  - g++ -v
+  - gcc -v
 script:
   - git clone https://github.com/Itseez/opencv.git
   - cd opencv
@@ -16,11 +24,14 @@ script:
   - sudo make -j4 install
   - cd ~
   - git clone https://github.com/4x7y/FakeImageKiller.git
-  - cd FakeImageKiller
-  - cmake .
+  - mkdir -p FakeImageKiller/build 
+  - cd FakeImageKiller/build
+  - cmake ..
   - make
 
 
 notifications:
   email:
     - xueyuechuan@gmail.com
+    - bikegcy@gmail.com
+    - wx0@mail.ustc.edu.cn
