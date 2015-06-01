@@ -5,6 +5,22 @@ Tempered image recognition based on convolution neural network.
 * Training Set: [CASIA 2.0](http://forensics.idealtest.org:8080/)
 * CNN: [tiny-cnn](https://github.com/nyanp/tiny-cnn)
 
+## Requirement
+
+* gcc 4.7+
+* g++ 4.7+
+* boost
+* opencv2
+
+## Usage
+
+	$ git clone https://github.com/4x7y/FakeImageKiller.git
+	$ mkdir -p FakeImageKiller/build
+	$ cd FakeImageKiller/build
+	$ cmake ..
+	$ make
+	$ ./FakeImageKiller
+
 ## Acknowledge
 
 * **CASIA Image Tempering Detection Evaluation Database**
