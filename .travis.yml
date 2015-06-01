@@ -1,7 +1,7 @@
 language: c++
 
 compiler: 
-  - gcc
+  - g++
 
 before_install:
   - sudo apt-get update
@@ -16,8 +16,8 @@ script:
   - sudo make -j4 install
   - cd ~
   - git clone https://github.com/4x7y/FakeImageKiller.git
-  - cd FakeImageKiller
-  - cmake .
+  - cd FakeImageKiller/build
+  - cmake ..
   - make
 
 
