@@ -22,6 +22,7 @@ script:
   - sudo make -j4 install
   - cd ~
   - git clone https://github.com/4x7y/FakeImageKiller.git
+  - mkdir -p FakeImageKiller/build 
   - cd FakeImageKiller/build
   - cmake ..
   - make
