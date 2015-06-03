@@ -32,6 +32,9 @@
 //#define NOMINMAX
 //#include "imdebug.h"
 
+#include <opencv2/highgui/highgui.hpp>
+
+
 void sample1_convnet();
 void sample2_mlp();
 void sample3_dae();
@@ -39,9 +42,14 @@ void sample4_dropout();
 
 using namespace tiny_cnn;
 using namespace tiny_cnn::activation;
+using namespace std;
+using namespace cv;
 
 int main(void) {
-    sample1_convnet();
+
+    Mat img = imread("/home/cloud/Resource/Au/Au_ani_00001.jpg", CV_LOAD_IMAGE_COLOR);
+    IplImage 
+    //sample1_convnet();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
