@@ -6,7 +6,7 @@ AUX_SOURCE_DIRECTORY( ./src DIR_SRCS)
 INCLUDE_DIRECTORIES(./include)
 FIND_PACKAGE ( OpenCV REQUIRED )
 # ADD_SUBDIRECTORY ( src )
-ADD_EXECUTABLE( FakeImageKiller ${DIR_SRCS} )
+ADD_EXECUTABLE( FakeImageKiller ${DIR_SRCS} include/tempered_image_parser.h)
 TARGET_LINK_LIBRARIES( FakeImageKiller ${OpenCV_LIBS} )
 
 

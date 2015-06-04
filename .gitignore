@@ -34,5 +34,7 @@ CMakeFiles
 cmake_install.cmake
 Makefile
 
+res/
+
 # Clion
 *.idea
