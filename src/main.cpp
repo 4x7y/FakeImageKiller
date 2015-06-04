@@ -47,9 +47,9 @@ using namespace cv;
 
 int main(void) {
 
-    Mat img = imread("/home/cloud/Resource/Au/Au_ani_00001.jpg", CV_LOAD_IMAGE_COLOR);
-    IplImage 
-    //sample1_convnet();
+//Mat img = imread("/home/cloud/Resource/Au/Au_ani_00001.jpg", CV_LOAD_IMAGE_COLOR);
+    //IplImage 
+    sample1_convnet();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
