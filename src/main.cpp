@@ -32,10 +32,12 @@
 #include <boost/timer.hpp>
 #include <boost/progress.hpp>
 
+
 #include "tiny_cnn.h"
 //#define NOMINMAX
 //#include "imdebug.h"
 
+#include "tempered_image_parser.h"
 #include <opencv2/opencv.hpp>
 
 
@@ -68,7 +70,7 @@ int main(void) {
             break;
     }
     */
-
+    /*
     //std::vector<label_t> train_labels, test_labels;
     std::vector<vec_t> train_images, test_images;
 
@@ -96,6 +98,9 @@ int main(void) {
     }
 
     images->push_back(image);
+    */
+
+    parse_tempered_images();
 
     //sample1_convnet();
 }
