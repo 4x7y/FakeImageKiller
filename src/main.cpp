@@ -52,57 +52,8 @@ using namespace std;
 using namespace cv;
 
 int main(void) {
-
-    Mat img = imread("/Users/yuechuan/Develop/FakeImageKiller/res/CASIA2/Au/Au_ani_00001.jpg", CV_LOAD_IMAGE_COLOR);
-    cvtColor(img, img, CV_BGR2GRAY);
-    imshow("cvt_color_test", img);
-
-    /*
-    for (int i = 0; i < img.rows; ++i) {
-        for (int j = 0; j < img.cols; j++) {
-            printf("%d ", img.data[i * img.cols + j]);
-        }
-        cout << endl;
-    }
-
-    while (true) {
-        if (waitKey(30) > 0)
-            break;
-    }
-    */
-    /*
-    //std::vector<label_t> train_labels, test_labels;
-    std::vector<vec_t> train_images, test_images;
-
-    std::vector<vec_t> *images = &train_images;
-
-    vec_t image;
-
-    int y_padding = 0;
-    int x_padding = 0;
-
-    const int width = img.cols + 2 * x_padding;
-    const int height = img.rows + 2 * y_padding;
-
-    double scale_min = -1.0;
-    double scale_max = 1.0;
-
-    image.resize(width * height, scale_min);
-
-    for (size_t y = 0; y < img.rows; y++) {
-        for (size_t x = 0; x < img.cols; x++) {
-
-            image[width * (y + y_padding) + x + x_padding]
-                    = (img.data[x * img.cols + y] / 255.0) * (scale_max - scale_min) + scale_min;
-        }
-    }
-
-    images->push_back(image);
-    */
-
-    parse_tempered_images();
-
-    //sample1_convnet();
+    std::vector<vec_t> train_images;
+    parse_tempered_images(&train_images);
 }
 
 

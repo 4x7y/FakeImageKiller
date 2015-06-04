@@ -3,63 +3,20 @@
 //
 
 #pragma once
+
 #include "util.h"
 #include <fstream>
 #include <cstdint>
-#include <boost/detail/endian.hpp>
 #include <iostream>
 #include <string>
-#include <boost/filesystem.hpp>
 #include <opencv2/opencv.hpp>
+#include <dirent.h>
 
-using namespace boost::filesystem;
 using namespace std;
 using namespace cv;
 using namespace tiny_cnn;
 
-void getFileNames(String config_path,  vector<string> &fileNames)
-{
-    path inputPath (config_path);
-    try
-    {
-        if (exists(inputPath))
-        {
-            if (is_regular_file(inputPath))
-            {
-                cout << inputPath << " is not a directory, its size is "
-                << file_size(inputPath) << '\n';
-            }
-            else if (is_directory(inputPath))
-            {
-                typedef vector<path> VecPath;
-                VecPath paths;
-
-                copy(directory_iterator(inputPath), directory_iterator(), back_inserter(paths));
-                sort(paths.begin(), paths.end());
-
-                for(VecPath::const_iterator it = paths.begin(); it != paths.end(); it++)
-                {
-                    string fileNam = it->filename().string();
-                    if(fileNam.find("."+config_path) != string::npos)
-                        fileNames.push_back(fileNam);
-                    //cout<< *it<<endl;
-                }
-            }
-            else
-                cout << inputPath << " exists, but is neither a regular file nor a directory\n";
-        }
-        else
-            cout << inputPath << " does not exist\n";
-    }
-
-    catch (const filesystem_error& ex)
-    {
-        cout << ex.what() << '\n';
-    }
-}
-
-
-void parse_tempered_images()
+int parse_tempered_images(std::vector<vec_t> *images)
 /*(const std::string& image_file,
                         std::vector<vec_t> *images,
                         float_t scale_min = -1.0,
@@ -67,15 +24,75 @@ void parse_tempered_images()
                         int x_padding = 2,
                         int y_padding = 2)*/
 {
-    std::vector<String> filenames;
-    String config_path = "/Users/yuechuan/Develop/FakeImageKiller/res/Tp/";
 
-    getFileNames(config_path, filenames);
+    char someDir[] = "/Users/yuechuan/Develop/FakeImageKiller/res/CASIA2/Tp/";
+    std::vector<std::string> filenames;
 
-    for ( int i = 0 ; i < filenames.size() ; i++ )
-    {
-        cout << filenames[i] << endl;
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir (someDir)) != NULL) {
+        /* print all the files and directories within directory */
+        while ((ent = readdir (dir)) != NULL) {
+            //printf ("%s\n", ent->d_name);
+
+            filenames.push_back(ent->d_name);
+        }
+        closedir (dir);
+    } else {
+        /* could not open directory */
+        perror ("");
+        return -1;
     }
+
+    std::string path_to_img;
+    int y_padding = 0;
+    int x_padding = 0;
+    int width;
+    int height;
+    double scale_min = -1.0;
+    double scale_max = 1.0;
+
+
+    Mat img;
+
+    cout << "File counter: " << filenames.size() << endl;
+    int m = 0;
+    int i = 0;
+    for (i = 0; i < 42; ++i) {
+        path_to_img = someDir + filenames[i];
+        //cout << "path_to_img: " << path_to_img << endl;
+
+        img = imread(path_to_img, CV_LOAD_IMAGE_COLOR);
+        if(img.empty()) continue;
+        cvtColor(img, img, CV_BGR2GRAY);
+
+        //imshow("cvt_color_test", img);
+
+
+        vec_t image;
+
+        width = img.cols + 2 * x_padding;
+        height = img.rows + 2 * y_padding;
+
+        image.resize(width * height, scale_min);
+
+        for (size_t y = 0; y < img.rows; y++) {
+            for (size_t x = 0; x < img.cols; x++) {
+
+                image[width * (y + y_padding) + x + x_padding]
+                        = (img.data[x * img.cols + y] / 255.0) * (scale_max - scale_min) + scale_min;
+            }
+        }
+
+        images->push_back(image);
+
+        cout << i << endl;
+    }
+
+
+    return 0;
 }
+
+
 
 
