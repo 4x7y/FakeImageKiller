@@ -51,9 +51,11 @@ using namespace tiny_cnn::activation;
 using namespace std;
 using namespace cv;
 
-int main(void) {
+int main(void)
+{
     std::vector<vec_t> train_images;
     parse_tempered_images(&train_images);
+
 }
 
 
