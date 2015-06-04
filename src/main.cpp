@@ -52,7 +52,7 @@ using namespace std;
 using namespace cv;
 
 int main(void) {
-    Mat img = imread("/Users/yuechuan/Develop/FakeImageKiller/res/CASIA2/Au/Au_ani_00001.jpg", CV_LOAD_IMAGE_COLOR);
+    Mat img = imread("/home/cloud/Develop/FakeImageKiller/res/CASIA2/Au/Au_ani_00001.jpg", CV_LOAD_IMAGE_COLOR);
     cvtColor(img, img, CV_BGR2GRAY);
     imshow("cvt_color_test", img);
 

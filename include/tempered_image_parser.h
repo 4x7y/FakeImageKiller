@@ -68,7 +68,7 @@ void parse_tempered_images()
                         int y_padding = 2)*/
 {
     std::vector<String> filenames;
-    String config_path = "/Users/yuechuan/Develop/FakeImageKiller/res/Tp/";
+    String config_path = "/home/cloud/Develop/FakeImageKiller/res/Tp/";
 
     getFileNames(config_path, filenames);
 
