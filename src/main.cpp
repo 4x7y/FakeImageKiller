@@ -24,21 +24,15 @@
     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-
 #include <iostream>
-#include <cstdlib>
-#include <stdio.h>
-#include <stdlib.h>
 #include <boost/timer.hpp>
 #include <boost/progress.hpp>
-
 
 #include "tiny_cnn.h"
 //#define NOMINMAX
 //#include "imdebug.h"
 
-#include "tempered_image_parser.h"
-#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 
 void sample1_convnet();
@@ -61,19 +55,14 @@ int main(void)
     //parse_tempered_images(&test_images);
     //parse_tempered_labels(&test_labels);
 
+     
     sample1_convnet();
 }
 
-
-
-///////////////////////////////////////////////////////////////////////////////
 // learning convolutional neural networks (LeNet-5 like architecture)
-
 void sample1_convnet(void) {
     // construct LeNet-5 architecture
     network<mse, gradient_descent_levenberg_marquardt> nn;
-
-
 
     // connection table [Y.Lecun, 1998 Table.1]
 #define O true
@@ -89,15 +78,15 @@ void sample1_convnet(void) {
 #undef O
 #undef X
 
-
     nn << convolutional_layer<tan_h>(32, 32, 5, 1, 6) // 32x32 in, 5x5 kernel, 1-6 fmaps conv
        << average_pooling_layer<tan_h>(28, 28, 6, 2) // 28x28 in, 6 fmaps, 2x2 subsampling
        << convolutional_layer<tan_h>(14, 14, 5, 6, 16,
                                      connection_table(connection, 6, 16)) // with connection-table
        << average_pooling_layer<tan_h>(10, 10, 16, 2)
        << convolutional_layer<tan_h>(5, 5, 5, 16, 120)
-       << fully_connected_layer<tan_h>(120, 2);
 
+       << fully_connected_layer<tan_h>(120, 10);
+ 
     std::cout << "load models..." << std::endl;
 
     // load MNIST dataset
