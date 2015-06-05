@@ -45,39 +45,39 @@ int parse_tempered_images(std::vector<vec_t> *images)
     }
 
     Mat img;
+    vec_t image;
 
     cout << "File counter: " << filenames.size() << endl;
     int i = 0;
-    for (i = 0; i < 22; ++i) {
+    for (i = 0; ; ++i) {
         path_to_img = TpDir + filenames[i];
         img = imread(path_to_img, CV_LOAD_IMAGE_COLOR);
         if(img.empty()) continue;
 
-        if(img.cols!=384 || img.rows!=256) {
-            //i--;
-            continue;
-        }
+        //if(img.cols!=384 || img.rows!=256) {
+        //    continue;
+        //}
         cout  << "x: " << img.cols << "\ty: " << img.rows << endl;
         cvtColor(img, img, CV_BGR2GRAY);
 
-        vec_t image;
-        width = img.cols + 2 * x_padding;
-        height = img.rows + 2 * y_padding;
+        width = 28 + 2 * x_padding;
+        height = 28 + 2 * y_padding;
         image.resize(width * height, scale_min);
 
-        for (size_t y = 0; y < 256/*img.rows*/; y++) {
-            for (size_t x = 0; x < 256/*img.cols*/; x++) {
+        for (size_t y = 0; y < 28/*img.rows*/; y++) {
+            for (size_t x = 0; x < 28/*img.cols*/; x++) {
                 image[width * (y + y_padding) + x + x_padding]
                         = (img.data[x * img.cols + y] / 255.0) * (scale_max - scale_min) + scale_min;
             }
         }
-
         images->push_back(image);
+	if(images->size() == 20) {
+	    break;
+	}
         //cout << i << endl;
     }
-
+    
     filenames.clear();
-    cout << "--------------------"<<endl;
 
     if ((dir = opendir (AuDir)) != NULL)
     {
@@ -91,32 +91,34 @@ int parse_tempered_images(std::vector<vec_t> *images)
         return -1;
     }
 
-    for (i = 0; i < 22; ++i) {
+    for (i = 0; ; ++i) {
         path_to_img = AuDir + filenames[i];
         img = imread(path_to_img, CV_LOAD_IMAGE_COLOR);
         if(img.empty()) continue;
 
-        if(img.cols!=384&&img.rows!=256) {
-            //i--;
-            continue;
-        }
+        //if(img.cols!=384&&img.rows!=256) {
+        //    i--;
+        //    continue;
+        //}
         cout  << "x: " << img.cols << "\ty: " << img.rows << endl;
         cvtColor(img, img, CV_BGR2GRAY);
 
-        vec_t image;
-        width = img.cols + 2 * x_padding;
-        height = img.rows + 2 * y_padding;
+        width = 28 + 2 * x_padding;
+        height = 28 + 2 * y_padding;
         image.resize(width * height, scale_min);
 
-        for (size_t y = 0; y < 256 /*img.rows*/; y++) {
-            for (size_t x = 0; x < 256 /*img.cols*/; x++) {
+        for (size_t y = 0; y < 28 /*img.rows*/; y++) {
+            for (size_t x = 0; x < 28 /*img.cols*/; x++) {
                 image[width * (y + y_padding) + x + x_padding]
                         = (img.data[x * img.cols + y] / 255.0) * (scale_max - scale_min) + scale_min;
             }
         }
 
         images->push_back(image);
+	if(images->size() == 40) break;
     }
+    cout << "picture numbers: " << images->size() << endl;
+    cout << "image size: " << image.size() << endl;
     return 0;
 }
 
@@ -128,7 +130,10 @@ int parse_tempered_labels(std::vector<label_t> *labels)
     for (int i = 0; i < 20; ++i) {
         labels->push_back((label_t)1);
     }
-
+    for (size_t i = 0; i < 40; ++i) {
+	printf("%d ", (*labels)[i]);
+    }
+    cout << endl;
     return 0;
 
 }

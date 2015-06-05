@@ -33,7 +33,7 @@
 //#include "imdebug.h"
 
 #include <opencv2/highgui/highgui.hpp>
-
+#include "tempered_image_parser.h"
 
 void sample1_convnet();
 void sample2_mlp();
@@ -45,17 +45,8 @@ using namespace tiny_cnn::activation;
 using namespace std;
 using namespace cv;
 
-//std::vector<vec_t> train_images,test_images;
-//std::vector<label_t> train_labels,test_labels;
-
 int main(void)
 {
-    //parse_tempered_images(&train_images);
-    //parse_tempered_labels(&train_labels);
-    //parse_tempered_images(&test_images);
-    //parse_tempered_labels(&test_labels);
-
-     
     sample1_convnet();
 }
 
@@ -85,8 +76,9 @@ void sample1_convnet(void) {
        << average_pooling_layer<tan_h>(10, 10, 16, 2)
        << convolutional_layer<tan_h>(5, 5, 5, 16, 120)
 
-       << fully_connected_layer<tan_h>(120, 10);
- 
+      // << fully_connected_layer<tan_h>(120, 10);
+       << fully_connected_layer<tan_h>(120, 2);
+
     std::cout << "load models..." << std::endl;
 
     // load MNIST dataset
@@ -94,10 +86,15 @@ void sample1_convnet(void) {
     std::vector<vec_t> train_images, test_images;
 
     
-    parse_mnist_labels("../data/train-labels.idx1-ubyte", &train_labels);
-    parse_mnist_images("../data/train-images.idx3-ubyte", &train_images);
-    parse_mnist_labels("../data/t10k-labels.idx1-ubyte", &test_labels);
-    parse_mnist_images("../data/t10k-images.idx3-ubyte", &test_images);
+    parse_tempered_images(&train_images);
+    parse_tempered_labels(&train_labels);
+    parse_tempered_images(&test_images);
+    parse_tempered_labels(&test_labels);
+
+    //parse_mnist_labels("../data/train-labels.idx1-ubyte", &train_labels);
+    //parse_mnist_images("../data/train-images.idx3-ubyte", &train_images);
+    //parse_mnist_labels("../data/t10k-labels.idx1-ubyte", &test_labels);
+    //parse_mnist_images("../data/t10k-images.idx3-ubyte", &test_images);
 
     std::cout << "start learning" << std::endl;
 

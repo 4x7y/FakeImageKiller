@@ -55,6 +55,10 @@ void parse_mnist_labels(const std::string& label_file, std::vector<label_t> *lab
         ifs.read((char*) &label, 1);
         labels->push_back((label_t) label);
     }
+    for(size_t i = 0; i < num_items; i++) {
+        uint8_t label;
+	printf("%d ", (*labels)[i]);
+    }
 }
 
 struct mnist_header {
