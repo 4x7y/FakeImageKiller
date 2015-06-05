@@ -18,8 +18,8 @@ using namespace tiny_cnn;
 
 int parse_tempered_images(std::vector<vec_t> *images)
 {
-    char TpDir[] = "/Users/yuechuan/Develop/FakeImageKiller/res/CASIA2/Tp/";
-    char AuDir[] = "/Users/yuechuan/Develop/FakeImageKiller/res/CASIA2/Au/";
+    char TpDir[] = "/home/cloud/Develop/FakeImageKiller/res/CASIA2/Tp/";
+    char AuDir[] = "/home/cloud/Develop/FakeImageKiller/res/CASIA2/Au/";
     std::vector<std::string> filenames;
 
     std::string path_to_img;
@@ -65,8 +65,8 @@ int parse_tempered_images(std::vector<vec_t> *images)
         height = img.rows + 2 * y_padding;
         image.resize(width * height, scale_min);
 
-        for (size_t y = 0; y < img.rows; y++) {
-            for (size_t x = 0; x < img.cols; x++) {
+        for (size_t y = 0; y < 256/*img.rows*/; y++) {
+            for (size_t x = 0; x < 256/*img.cols*/; x++) {
                 image[width * (y + y_padding) + x + x_padding]
                         = (img.data[x * img.cols + y] / 255.0) * (scale_max - scale_min) + scale_min;
             }
@@ -108,8 +108,8 @@ int parse_tempered_images(std::vector<vec_t> *images)
         height = img.rows + 2 * y_padding;
         image.resize(width * height, scale_min);
 
-        for (size_t y = 0; y < img.rows; y++) {
-            for (size_t x = 0; x < img.cols; x++) {
+        for (size_t y = 0; y < 256 /*img.rows*/; y++) {
+            for (size_t x = 0; x < 256 /*img.cols*/; x++) {
                 image[width * (y + y_padding) + x + x_padding]
                         = (img.data[x * img.cols + y] / 255.0) * (scale_max - scale_min) + scale_min;
             }
