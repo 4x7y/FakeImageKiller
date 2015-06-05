@@ -52,6 +52,12 @@ int parse_tempered_images(std::vector<vec_t> *images)
         path_to_img = TpDir + filenames[i];
         img = imread(path_to_img, CV_LOAD_IMAGE_COLOR);
         if(img.empty()) continue;
+
+        if(img.cols!=384 || img.rows!=256) {
+            //i--;
+            continue;
+        }
+        cout  << "x: " << img.cols << "\ty: " << img.rows << endl;
         cvtColor(img, img, CV_BGR2GRAY);
 
         vec_t image;
@@ -67,11 +73,11 @@ int parse_tempered_images(std::vector<vec_t> *images)
         }
 
         images->push_back(image);
-        cout << i << endl;
+        //cout << i << endl;
     }
 
     filenames.clear();
-    cout << "heheh";
+    cout << "--------------------"<<endl;
 
     if ((dir = opendir (AuDir)) != NULL)
     {
@@ -89,6 +95,12 @@ int parse_tempered_images(std::vector<vec_t> *images)
         path_to_img = AuDir + filenames[i];
         img = imread(path_to_img, CV_LOAD_IMAGE_COLOR);
         if(img.empty()) continue;
+
+        if(img.cols!=384&&img.rows!=256) {
+            //i--;
+            continue;
+        }
+        cout  << "x: " << img.cols << "\ty: " << img.rows << endl;
         cvtColor(img, img, CV_BGR2GRAY);
 
         vec_t image;
@@ -104,12 +116,22 @@ int parse_tempered_images(std::vector<vec_t> *images)
         }
 
         images->push_back(image);
-        cout << i << endl;
     }
-
     return 0;
 }
 
+int parse_tempered_labels(std::vector<label_t> *labels)
+{
+    for (int i = 0; i < 20; ++i) {
+        labels->push_back((label_t)0);
+    }
+    for (int i = 0; i < 20; ++i) {
+        labels->push_back((label_t)1);
+    }
+
+    return 0;
+
+}
 
 
 
