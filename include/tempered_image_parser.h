@@ -18,8 +18,8 @@ using namespace tiny_cnn;
 
 int parse_tempered_images(std::vector<vec_t> *images)
 {
-    char TpDir[] = "/home/cloud/Develop/FakeImageKiller/res/CASIA2/Tp/";
-    char AuDir[] = "/home/cloud/Develop/FakeImageKiller/res/CASIA2/Au/";
+    char TpDir[] = "../res/CASIA2/Tp/";
+    char AuDir[] = "../res/CASIA2/Au/";
     std::vector<std::string> filenames;
 
     std::string path_to_img;
