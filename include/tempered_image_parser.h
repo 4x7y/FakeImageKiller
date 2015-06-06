@@ -76,7 +76,7 @@ int parse_tempered_images(std::vector<vec_t> *images)
 	}
         //cout << i << endl;
     }
-    
+    cout << "---------------" << endl;    
     filenames.clear();
 
     if ((dir = opendir (AuDir)) != NULL)
